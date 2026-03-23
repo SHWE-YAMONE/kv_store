@@ -13,3 +13,24 @@ KV Store is a multi-threaded, asynchronous Key-Value store inspired by Redis, bu
 **Sharded Storage:** A sharded LRU cache structure that reduces lock contention across multiple IO threads.
 
 **Memory Efficiency:** Designed with ClientContext isolation to ensure cache locality and prevent cross-thread data corruption.
+
+
+## Project Structure
+**project_root/**
+&nbsp;&nbsp;&nbsp; - **include/**    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *client_context.hpp*        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *io_thread.hpp*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *kv_store.hpp*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *lru.hpp*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *resp_parser.hpp*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *ring_buffer.hpp*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *server.hpp*  
+
+&nbsp;&nbsp;&nbsp; - **src/**            
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *io_thread.cpp*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *main.hpp*   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *resp_parser.hpp* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - *server.hpp*  
+
+&nbsp;&nbsp;&nbsp; - **CMakeLists.txt**  
+&nbsp;&nbsp;&nbsp; - **Dockerfile** 

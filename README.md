@@ -3,7 +3,7 @@
 
 KV Store is a multi-threaded, asynchronous Key-Value store inspired by Redis, built for extreme performance on Linux. It utilizes a Shared-Nothing architecture combined with Lock-Free/Sharded storage to minimize CPU contention and maximize throughput.
 
-## 🛠 Advanced Features
+## Advanced Features
 **Asynchronous I/O:** Powered by epoll in Edge-Triggered (EPOLLET) mode for O(1) event notification.
 
 **Zero-Allocation Path:** Uses custom Circular Ring Buffers and std::string_view to process requests without heap allocations during the hot path.
@@ -34,3 +34,38 @@ KV Store is a multi-threaded, asynchronous Key-Value store inspired by Redis, bu
 
 &nbsp;&nbsp;&nbsp; - **CMakeLists.txt**  
 &nbsp;&nbsp;&nbsp; - **Dockerfile** 
+
+## Getting Started
+### Build(Docker)
+```
+docker build -t kv_store .
+docker run -p 6379:6379 kv_store
+```
+
+### Usage
+```
+redis-cli -p 6379
+```
+### Supported Command
+```
+SET key value
+GET key
+```
+
+### Example
+```
+SET foo bar
+GET foo
+```
+
+### Response
+```
+bar
+```
+
+## Future Improvements
+- Add DELETE/EXPIRE commands
+- Integrate LRU cache into KVStore
+- Cluster support
+- Pipelining optomization
+- Metrics & observability
